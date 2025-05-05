@@ -121,6 +121,8 @@
   </style>
 </head>
 <body>
+<audio id="birthdayMusic" src="music\Happy.mp3" loop></audio>
+  
   <!-- 隐藏的礼物元素，每个都有data-image属性指定点击后显示的图片 -->
   <img src="生日素材/礼物2.png" class="gift" id="specialGift" style="display: none; position: absolute; left: 730px; top: 620px; transform: rotate(-15deg);" width="80">
   <img src="生日素材/礼物.png" class="gift" data-image="Together/2.png" style="display: none; position: absolute; left: 230px; top: 620px; transform: rotate(10deg);" width="70">
@@ -159,6 +161,11 @@
     function startAnimation() {
       if (clicked) return; // 如果已经点击过，直接返回
       clicked = true; // 标记为已点击
+
+const music = document.getElementById('birthdayMusic');
+  music.volume = 0.2; // 设置为20%的音量
+  music.play();
+      
       alert("🎉祝我最爱的婷婷生日快乐"); // 弹出祝福消息
       document.querySelector('.gift-box').classList.add('disabled'); // 禁用蛋糕点击
       createFallingElements(); // 创建下落元素
@@ -313,10 +320,12 @@
   letter.innerHTML = `
     <h2 style="text-align: center; color: #ff69b4; margin-bottom: 15px; font-size: 26px;"> 给婷婷的一封生日信</h2>
     <p style="font-size: 18px; color: #555; line-height: 1.8; text-align: left;">
-        生日快乐呀！不知道你喜不喜欢这份特别的电子礼物呢？时光轻轻走过，这么快又把你的生日带到眼前，愿这一天，所有的美好都向你靠近。
-      很可惜不能当面为你庆祝，但我保证一定会有那一天的，你就好好期待吧。
-      另外，我想让你知道，我一直都很想你的，尽管我们可能不像热恋那样交流得这么频繁了，但是我对你的喜欢一直都没有变。
-      在这纷扰的人间，有一程风景，叫作与你同行，以后你的每个生日我都会在的。最后，我要说的那两个字，已经疯狂的在页面底部冒出来啦。
+        生日快乐呀！时光轻轻走过，这么快又把你的生日带到眼前，愿这一天，所有的美好都向你靠近。
+        不知道你喜不喜欢这份特别的电子礼物呢？感觉时间真的过的好快啊，不知不觉，从我们第一次约会到现在已经过去快两年啦，
+        我放的这些照片你还记得多少呀，有没有让你想起一些我们在一起的日子？<br>
+        ㅤㅤ另外，我想让你知道，我一直都很想你的，真的很想。尽管我们可能不像热恋那样交流得这么频繁了，但是我对你的喜欢一直都没有变
+      。很可惜不能当面为你庆祝，但我保证一定会有那一天的，现在就让我们先着眼完成眼前的事吧。<br>
+      ㅤㅤ在这纷扰的人间，有一程风景，叫作与你同行，以后你的每个生日我都会在的。最后，我要说的那两个字，已经疯狂的在页面底部冒出来啦。
     </p>
     <div style="text-align: center; margin-top: 25px;">
       <button id="closeLetter" style="padding: 5px 15px; background: linear-gradient(to right, #ff7eb3, #ff758c);
